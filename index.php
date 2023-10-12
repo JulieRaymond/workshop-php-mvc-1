@@ -13,3 +13,4 @@ $recipes = getAllRecipes();
 
 // Generate the web page
 require __DIR__ . '/src/views/indexRecipe.php';
+require __DIR__ . '/src/views/form.php';
