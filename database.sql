@@ -7,4 +7,4 @@ CREATE TABLE recipe (
 
 INSERT INTO recipe (id, title, description) VALUES
 (1, 'Tarte tatin', 'Tu fais une tarte, tu la mets au four et puis tatin.'),
-(2, 'Pudding à l\'arsenic', 'Dans un grand bol de strychnine, délayer de la morphine. Faites tiédir à la casserole, un bon verre de pétrole...');
+(2, 'Pudding à larsenic', 'Dans un grand bol de strychnine, délayer de la morphine. Faites tiédir à la casserole, un bon verre de pétrole...');

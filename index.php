@@ -1,30 +1,15 @@
 <?php
 require_once 'config.php';
+require __DIR__ . '/src/models/recipe-model.php';
 
-// Fetching all recipes from database - assuming the database is okay
-$connection = new PDO("mysql:host=" . SERVER . ";dbname=" . DATABASE . ";charset=utf8", USER, PASSWORD);
-$statement = $connection->query('SELECT id, title FROM recipe');
-$recipes = $statement->fetchAll(PDO::FETCH_ASSOC);
+// Check if the form was submitted and a recipe was added
+if ($_SERVER["REQUEST_METHOD"] === 'POST') {
+    // Assuming you've successfully added a new recipe
+    $successMessage = "Recipe added successfully!";
+}
+
+// Fetching all recipes from the database - assuming the database is okay
+$recipes = getAllRecipes();
 
 // Generate the web page
-?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>List of Recipes</title>
-    </head>
-    <body>
-        <h1>List of Recipes</h1>
-        <ul>
-            <?php foreach ($recipes as $recipe): ?>
-            <li>
-                <a href="show.php?id=<?= $recipe['id'] ?>">
-                    <?= $recipe['title'] ?>
-                </a>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    </body>
-</html>
+require __DIR__ . '/src/views/indexRecipe.php';
